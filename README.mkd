@@ -1,0 +1,53 @@
+Melbourne University Internet Usage Meter
+-----------------------------------------
+
+Outline
+=======
+
+The source code to the Melbourne University internet usage meter. Every week,
+staff and students could download only 1GB through the university proxy. This
+tool was created to allow staff and students to track their usage.
+
+The site can be found [here](http://meter.studentit.unimelb.edu.au)
+
+Unfortunately the site is still hosted through the HTTP rather than the HTTPS
+protocol. This was out of my control, the people in charge of hosting had said
+they would look into it; that was in 2011.
+
+Implementation
+==============
+
+The implementation is very simple. The site is written in PHP, mainly because
+that is the only language that the university's central IT agreed to host.
+
+The site prompts users to log in with their university account. It authenticates
+these against the University LDAP server.
+
+It then connects to an oracle server that hosts usage data, finds the data
+relevant to the authenticated user, and servers that back to the user.
+
+Background
+==========
+
+The site was first written in March 2011. Since then it underwent a facelift
+when the university decided to rebrand its pages. I created a separate
+repository for GitHub and removed 'sensitive' information from the source code. 
+
+As of mid 2013 Wireless traffic no longer goes through the university proxy;
+however, one can imagine with the advent of youtube, 1GB was not enough for most
+students.
+
+As a front line IT support attached to the libraries, we frequently received
+questions and complaints regarding students' access to the internet. Even though
+some knew of the weekly 1GB limit, there was no way to check whether
+connectivity issues were caused because of it.
+
+The central IT division was supposed to create one, but it never eventuated so I
+proposed that I create one in the mean time. After the initial success of the
+Availability system, and the lack of internal progress, the higher ups in the
+central IT division were happy to facilitate access to the data.
+
+After the site was finished, I proposed that the internet usage meter be
+integrated into the Student Portal a central site for students to access their
+email, and update enrolment and personal details. This was well received, and
+late in 2013 I was asked by a Student Portal developer where the data resides.
